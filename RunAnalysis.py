@@ -16,7 +16,7 @@ import matplotlib.cbook
 warnings.filterwarnings('ignore', category=DeprecationWarning)
 warnings.filterwarnings('ignore', category=RuntimeWarning)
 warnings.filterwarnings('ignore', category=UserWarning)
-warnings.filterwarnings('ignore', category=matplotlib.cbook.mplDeprecation)
+#warnings.filterwarnings('ignore', category=matplotlib.cbook.mplDeprecation)
 
 pd.options.mode.chained_assignment = None
 
@@ -631,6 +631,8 @@ def main():
 
     if config['PLOTPROCESSES']:
         logging.info('Making PLOTPROCESSES plots for {}'.format(config['PLOTPROCESSES_VARS']))
+        ensure_dir('Plots/')
+
         for var in config['PLOTPROCESSES_VARS']:
             bins,xtitle = dict_hists[var],dict_xtitles[var]
 
@@ -650,6 +652,8 @@ def main():
     #####################################################################
     if config['PLOTTAU1TMP']:
         logging.info('Making PLOTTAU1TMP plots for {}'.format(config['PLOTTAU1TMP_VARS']))
+        ensure_dir('Plots/')
+
         for var in config['PLOTTAU1TMP_VARS']:
             bins,xtitle = dict_hists[var],dict_xtitles[var]
 
@@ -666,6 +670,8 @@ def main():
 
     if config['PLOTTAU2TMP']:
         logging.info('Making PLOTTAU2TMP plots for {}'.format(config['PLOTTAU2TMP_VARS']))
+        ensure_dir('Plots/')
+
         for var in config['PLOTTAU2TMP_VARS']:
             bins,xtitle = dict_hists[var],dict_xtitles[var]
 
@@ -681,6 +687,8 @@ def main():
     #####################################################################
     if config['PLOTLEP1TMP']:
         logging.info('Making PLOTLEP1TMP plots for {}'.format(config['PLOTLEP1TMP_VARS']))
+        ensure_dir('Plots/')
+
         for var in config['PLOTLEP1TMP_VARS']:
             bins,xtitle = dict_hists[var],dict_xtitles[var]
 
@@ -693,6 +701,8 @@ def main():
 
     if config['PLOTLEP2TMP']:
         logging.info('Making PLOTLEP2TMP plots for {}'.format(config['PLOTLEP2TMP_VARS']))
+        ensure_dir('Plots/')
+
         for var in config['PLOTLEP2TMP_VARS']:
             bins,xtitle = dict_hists[var],dict_xtitles[var]
 
@@ -708,6 +718,7 @@ def main():
     if config['PLOTPAIRSTMP']:
         mypairs = 'di-lep' if config['AnalysisChannel']=='lephad' else 'di-tau'
         logging.info('Making {} combined regions plots'.format(mypairs))
+        ensure_dir('Plots/')
 
         if config['AnalysisChannel']=='lephad':
             mypairs = 'di-lep'

@@ -3,7 +3,7 @@ AnalysisChannel: lephad
 
 # Inputs
 # InputDir:        /Users/okiverny/workspace/tH/3l1tau_loose_august/
-InputDir:        /Users/okiverny/workspace/tH/dileptau_April2023/
+InputDir:        /Users/okiverny/workspace/tHqAnalysis/samples_2L1TAU_OS/
 USE_FRAC_DATA:   False # True or False
 
 # Parameters for lephad channel
@@ -26,7 +26,7 @@ CORRECT_BKG_TAU_CONFIGS: backup_April2023/taufakes_yields_method.root, backup_Ap
 CORRECT_BKG_DILEP:       False
 
 # Plotting
-PIECHARTS:              True
+PIECHARTS:              False
 
 PLOTPROCESSES:          True
 #PLOTPROCESSES_VARS:     fs_had_tau_1_pt, fs_had_tau_1_eta, fs_had_tau_1_RNNScore, m_njets, pt_lep1, eta_lep1, pt_lep2, eta_lep2, m_met #, NNout_tauFakes
