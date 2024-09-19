@@ -1,0 +1,50 @@
+# Analysis channel
+AnalysisChannel: hadhad
+
+# Inputs
+# InputDir:        /Users/okiverny/workspace/tH/3l2tau_loose_april/
+InputDir:        /Users/okiverny/workspace/tH/lepditau_April2023/
+#InputDir:   /Users/okiverny/workspace/tH/3l2tau_24-04-2024/
+USE_FRAC_DATA:   False # True or False
+
+# Selection
+BJETS:           1,2    # One or few int values separated by comma
+
+# Background analysis
+SPLIT_JETSTMP:   True
+
+
+# Apply background corrections?
+CORRECT_BKG_DITAU:  False
+USE_SF_FROM_OS:     False
+CORRECT_BKG_LEP:    False
+
+# Plotting
+PIECHARTS:              True
+
+PLOTPROCESSES:          True
+PLOTPROCESSES_VARS:     fs_had_tau_1_pt,fs_had_tau_2_pt,fs_had_tau_1_RNNScore,fs_had_tau_2_RNNScore,m_njets, pt_lep1,eta_lep1, fs_had_tau_1_eta,fs_had_tau_2_eta,m_nbjets
+PLOTPROCESSES_REGIONS:  data_SR
+
+PLOTTAU1TMP:            True
+PLOTTAU1TMP_VARS:       fs_had_tau_1_pt,fs_had_tau_1_eta,m_njets,fs_had_tau_1_RNNScore,fs_had_tau_true_pdg,fs_had_tau_true_partonTruthLabelID,fs_had_tau_1_JetTrackWidth
+PLOTTAU1TMP_REGIONS:    data_SR, data_Tau1CR
+
+PLOTTAU2TMP:            True
+PLOTTAU2TMP_VARS:       fs_had_tau_2_pt,fs_had_tau_2_eta,m_njets,fs_had_tau_2_RNNScore,fs_had_tau_2_true_pdg,fs_had_tau_2_true_partonTruthLabelID,fs_had_tau_2_JetTrackWidth
+PLOTTAU2TMP_REGIONS:    data_SR, data_Tau2CR
+
+PLOTLEP1TMP:            False
+PLOTLEP1TMP_VARS:       pt_lep1,eta_lep1,m_njets,TruthIFF_Class_lep1,fs_had_tau_true_partonTruthLabelID
+PLOTLEP1TMP_REGIONS:    data_SR, data_Lep1CR
+
+PLOTPAIRSTMP:           True
+PLOTPAIRSTMP_TMPNAME:   TempCombinations   # processes, tau_1_tmp, TempCombinations
+
+# Background estimation
+EXTRACT_TAUBKG:         False
+EXTRACT_TAUBKG_METHOD:  Counting,TemplateFit               # 'Counting', 'TemplateFit' or 'Counting,TemplateFit'
+EXTRACT_TAUBKG_SAVE:    True
+
+EXTRACT_LEPBKG:         False
+EXTRACT_LEPBKG_SAVE:    True

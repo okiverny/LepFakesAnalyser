@@ -1,0 +1,74 @@
+# Analysis channel
+AnalysisChannel: lephad
+
+# Inputs
+InputDir:        /Users/okiverny/workspace/tH/3l1tau_loose_august/
+USE_FRAC_DATA:   False # True or False
+
+# Parameters for lephad channel
+DilepSelection:  OS  # SS, OS, INCL
+SUBL_LEP_CUT:    14  # in [GeV]
+
+# Selection
+BJETS:           1,2    # One or few int values separated by comma
+
+# Background analysis
+SPLIT_JETSTMP:   True
+
+
+# Apply background corrections?
+CORRECT_BKG_TAU:         True
+CORRECT_BKG_TAU_METHOD:  TemplateFit      # SFs to apply to nominal: Counting or TemplateFit
+CORRECT_BKG_TAU_CONFIGS: Corrections/taufakes_yields_method.root, Corrections/taufakes_yields_method.root   #Files -1st: Counting SFs; -2nd: TemplateFit file
+
+CORRECT_BKG_DILEP:       True
+
+# Plotting
+PIECHARTS:              False
+
+PLOTPROCESSES:          True
+PLOTPROCESSES_VARS:     fs_had_tau_1_pt, fs_had_tau_1_eta, fs_had_tau_1_RNNScore, m_njets, pt_lep1, eta_lep1, pt_lep2, eta_lep2, m_met,
+                        tH_prob,tZ_prob,others_prob,
+                        tH_score, tH_LHscore, tZ_score, tZ_LHscore
+                        # eta_jf,phi_jf,pt_jf, M_b_jf,
+                        # eta_b,phi_b,pt_b,MMC_out_1,
+                        # HvisEta,HvisPt,m_sumet,m_met,
+                        # TvisEta,TvisMass,TvisPt,HT_all,
+                        # lep_Top_eta,lep_Top_pt,lep_Top_phi,deltaRTau,
+                        # pt_jet1, phi_jet1,eta_jet1,m_phi_met,
+                        # deltaPhiTau, had_tau_pt,had_tau_eta,
+                        # lep_Higgs_pt,lep_Higgs_eta,lep_Higgs_phi,
+PLOTPROCESSES_REGIONS:  data_SR, data_SR_tight
+
+PLOTTAU1TMP:            False
+PLOTTAU1TMP_VARS:       fs_had_tau_1_pt, fs_had_tau_1_eta, fs_had_tau_true_pdg, fs_had_tau_true_partonTruthLabelID,m_njets,
+                        pt_lep1,eta_lep1, pt_lep2,eta_lep2,pt_jet1,pt_jet2,m_met,fs_had_tau_1_JetTrackWidth, tH_score, tH_LHscore
+PLOTTAU1TMP_REGIONS:    data_SR #, data_Tau1CR
+
+
+PLOTLEP1TMP:            False
+PLOTLEP1TMP_VARS:       m_njets, pt_lep1,eta_lep1,TruthIFF_Class_lep1
+PLOTLEP1TMP_REGIONS:    data_SR, data_Lep1CR
+
+PLOTLEP2TMP:            False
+PLOTLEP2TMP_VARS:       m_njets, pt_lep2,eta_lep2,TruthIFF_Class_lep2
+PLOTLEP2TMP_REGIONS:    data_SR, data_Lep2CR
+
+PLOTPAIRSTMP:           True
+PLOTPAIRSTMP_TMPNAME:   TempCombinations   # processes, tau_1_tmp, TempCombinations
+
+# Background estimation
+EXTRACT_TAUBKG:         False
+EXTRACT_TAUBKG_METHOD:  Counting,TemplateFit               # 'Counting', 'TemplateFit' or 'Counting,TemplateFit'
+EXTRACT_TAUBKG_SAVE:    True
+
+EXTRACT_LEPBKG:         False
+EXTRACT_LEPBKG_SAVE:    True
+
+# LGBM training to classify tHq
+TRAIN_LGBM:             True
+TUNE_PARS:              False   # None, Grid or Bayesian
+EVAL_ARGMAX:            True
+EVAL_TERNARY:           False
+EVAL_SHAP:              False
+EVAL_LGBM_IMPORTANCE:   True

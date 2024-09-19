@@ -1,0 +1,69 @@
+# Analysis channel
+AnalysisChannel: lephad
+
+# Inputs
+# InputDir:        /Users/okiverny/workspace/tH/3l1tau_loose_august/
+InputDir:        /Users/okiverny/workspace/tH/dileptau_April2023/
+USE_FRAC_DATA:   False # True or False
+
+# Parameters for lephad channel
+DilepSelection:  SS  # SS, OS, INCL
+SUBL_LEP_CUT:    14  # in [GeV]
+
+# Selection
+BJETS:           1,2    # One or few int values separated by comma
+
+# Background analysis
+SPLIT_JETSTMP:   True
+
+
+# Apply background corrections?
+CORRECT_BKG_TAU:         False
+CORRECT_BKG_TAU_METHOD:  Counting      # SFs to apply to nominal: Counting or TemplateFit
+CORRECT_BKG_TAU_CONFIGS: Corrections/taufakes_yields_method.root, Corrections/taufakes_yields_method.root   #Files -1st: Counting SFs; -2nd: TemplateFit file
+
+CORRECT_BKG_DILEP:       False
+
+# Plotting
+PIECHARTS:              True
+
+PLOTPROCESSES:          False
+PLOTPROCESSES_VARS:     fs_had_tau_1_pt, fs_had_tau_1_eta, fs_had_tau_1_RNNScore, m_njets,
+                        pt_lep1, eta_lep1, pt_lep2, eta_lep2, m_met
+PLOTPROCESSES_REGIONS:  data_SR
+
+PLOTTAU1TMP:            True
+PLOTTAU1TMP_VARS:       fs_had_tau_1_pt, fs_had_tau_1_eta, fs_had_tau_true_pdg, fs_had_tau_true_partonTruthLabelID,m_njets,
+                        pt_lep1,eta_lep1, pt_lep2,eta_lep2,pt_jet1,pt_jet2,m_met,fs_had_tau_1_JetTrackWidth
+PLOTTAU1TMP_REGIONS:    data_SR, data_Tau1CR
+
+
+PLOTLEP1TMP:            True
+PLOTLEP1TMP_VARS:       m_njets, pt_lep1,eta_lep1,TruthIFF_Class_lep1
+PLOTLEP1TMP_REGIONS:    data_SR, data_Lep1CR
+
+PLOTLEP2TMP:            True
+PLOTLEP2TMP_VARS:       m_njets, pt_lep2,eta_lep2,TruthIFF_Class_lep2
+PLOTLEP2TMP_REGIONS:    data_SR, data_Lep2CR
+
+PLOTPAIRSTMP:           True
+PLOTPAIRSTMP_TMPNAME:   TempCombinations   # processes, tau_1_tmp, TempCombinations
+
+# Background estimation
+EXTRACT_TAUBKG:         False
+EXTRACT_TAUBKG_METHOD:  Counting               # 'Counting', 'TemplateFit' or 'Counting,TemplateFit'
+EXTRACT_TAUBKG_SAVE:    True
+# Train Quark/Gluon Tagger
+TRAIN_QGTAGGER:         False
+
+EXTRACT_LEPBKG:         False
+EXTRACT_LEPBKG_SAVE:    True
+
+# LGBM training to classify tHq
+TRAIN_THQ:              False
+MVA_METHOD:             NN      # NN or LGBM
+TUNE_PARS:              None   # None, Grid or Bayesian
+EVAL_ARGMAX:            False
+EVAL_TERNARY:           False
+EVAL_SHAP:              False
+EVAL_LGBM_IMPORTANCE:   False
