@@ -1,15 +1,14 @@
 import matplotlib.pyplot as plt
-
 import numpy as np
 import pandas as pd
-
 from pandas.core.frame import DataFrame
 import ROOT
 import root_numpy as rootnp
-
 import glob
 import os
 import ctypes
+
+from LFAHelpers import style
 
 ############################################################
 ###                  Helper functions                    ###

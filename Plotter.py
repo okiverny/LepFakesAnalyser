@@ -6,6 +6,7 @@ import numpy as np
 from array import array
 import math
 import ROOT
+from LFAHelpers import style
 
 ####################################################################
 ###                         HISTMaker                            ###

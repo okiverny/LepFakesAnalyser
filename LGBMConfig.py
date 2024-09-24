@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
-
 from sklearn.model_selection import KFold
 
 try:
@@ -11,6 +10,7 @@ try:
 except ImportError:
     raise ImportError('Cannot import lightgbm')
 
+from LFAHelpers import style
 
 def prepare_data_lgbm(data):
 
